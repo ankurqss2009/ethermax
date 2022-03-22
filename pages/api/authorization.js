@@ -8,16 +8,17 @@ const {parse} = require('csv-parse');
 export default async (req, res) => {
     const address= req.body.address && req.body.address.toLowerCase()
     const airdrop = fs
-        .createReadStream('./Token-List.csv')
+        .createReadStream('Token-List.csv')
         .pipe(parse({
         }));
     let recipient = null;
     for await (const allocation of airdrop) {
         if(allocation[0] && allocation[0].trim().length === 42  && allocation[0].trim().toLowerCase() == address) {
-            //console.log("--allocation",allocation)
+            console.log("--allocation",allocation)
             recipient = {address:allocation[0].trim().toLowerCase(),totalAllocation:allocation[1]}
         }
     }
+    console.log("recipient--------------",recipient)
     if(recipient) {
         const message = Web3.utils.soliditySha3(
             {t: 'address', v: recipient.address},
