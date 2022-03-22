@@ -26,7 +26,7 @@ export default async (req, res) => {
 
     const address= req.body.address && req.body.address.toLowerCase()
     const airdrop = fs
-        .createReadStream(csvPath)
+        .createReadStream('./Token-List.csv')
         .pipe(parse({
         }));
     let recipient = null;
