@@ -5,9 +5,9 @@ const fs = require('fs');
 const {parse} = require('csv-parse');
 const {join} = require('path');
 
-const filePath = path.join(__dirname, './Token-List.csv');
+//const filePath = path.join(__dirname, './Token-List.csv');
 
-import getConfig from 'next/config'
+//import getConfig from 'next/config'
 
 
 
