@@ -3,7 +3,7 @@ import Web3 from 'web3';
 
 const fs = require('fs');
 const {parse} = require('csv-parse');
-const path = require('path');
+const {join} = require('path');
 
 const filePath = path.join(__dirname, './Token-List.csv');
 
@@ -14,19 +14,11 @@ import getConfig from 'next/config'
 
 export default async (req, res) => {
 
-    const { serverRuntimeConfig } = getConfig()
-
-    const dirRelativeToPublicFolder = 'Token-List.csv'
-    console.log("----serverRuntimeConfig.PROJECT_ROOT---",serverRuntimeConfig.PROJECT_ROOT)
-
-    const csvPath = path.join('./public', dirRelativeToPublicFolder);
-
-    console.log("----filePath with config---",csvPath)
-
+    //const file = readFileSync(join(__dirname, 'csv', 'Token-List.csv'), 'utf8')
 
     const address= req.body.address && req.body.address.toLowerCase()
     const airdrop = fs
-        .createReadStream('./Token-List.csv')
+        .createReadStream(join(__dirname, 'csv', 'Token-List.csv'), 'utf8')
         .pipe(parse({
         }));
     let recipient = null;

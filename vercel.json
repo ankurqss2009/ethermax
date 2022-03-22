@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/authorization.js": {
+      "includeFiles": "csv/**"
+    }
+  }
+}
