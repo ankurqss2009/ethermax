@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/authorization.js": {
+    "api/hello.js": {
       "includeFiles": "csv/**"
     }
   }
