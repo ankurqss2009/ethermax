@@ -7,13 +7,26 @@ const path = require('path');
 
 const filePath = path.join(__dirname, './Token-List.csv');
 
+import getConfig from 'next/config'
+
+
 
 
 export default async (req, res) => {
-    console.log("----filePath---",filePath)
+
+    const { serverRuntimeConfig } = getConfig()
+
+    const dirRelativeToPublicFolder = 'Token-List.csv'
+    console.log("----serverRuntimeConfig.PROJECT_ROOT---",serverRuntimeConfig.PROJECT_ROOT)
+
+    const csvPath = path.join('./public', dirRelativeToPublicFolder);
+
+    console.log("----filePath with config---",csvPath)
+
+
     const address= req.body.address && req.body.address.toLowerCase()
     const airdrop = fs
-        .createReadStream('./Token-List.csv')
+        .createReadStream(csvPath)
         .pipe(parse({
         }));
     let recipient = null;
