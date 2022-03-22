@@ -1,0 +1,270 @@
+body {
+  background-image: url("../public/back_img.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+}
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+.alert-primary {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+}
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px 15px 30px;
+}
+.header .right_btn {
+  display: flex;
+  align-items: center;
+}
+.header .right_btn img.inner_logo {
+  margin-right: 20px;
+}
+.header .right_btn button.connect_btn {
+  padding: 15px 45px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  border: none;
+  border-radius: 25px;
+  background: #F4353C;
+  font-family: "Lato";
+  border-bottom: 5px solid #A9191E;
+  border-right: 5px solid #A9191E;
+}
+.header .right_btn button.connect_btn:hover {
+  background: #ffffff;
+  color: #F4353C;
+}
+.btn_section .btn_inner_part {
+  text-align: center;
+}
+.btn_section .btn_inner_part .max_btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #252733;
+  border-radius: 25px;
+  margin-top: 80px;
+  width: 50%;
+}
+.btn_section .btn_inner_part .max_btn button.inner_btn {
+  font-size: 52px;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 70px;
+  background: transparent;
+  border: none;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+}
+.btn_section .btn_inner_part .max_btn img.inner_img {
+  padding-left: 15px;
+}
+.btn_section .btn_inner_part .claim_btn {
+  display: inline-flex;
+  align-items: center;
+  background: #F4353C;
+  /* box-shadow: 0px 0px 20px #c520ff; */
+  border-radius: 30px;
+  margin-top: 120px;
+  width: 35%;
+  justify-content: center;
+  border-bottom: 10px solid #A9191E;
+  border-right: 10px solid #A9191E;
+}
+
+.btn_section .btn_inner_part .claim_btn img.inner_img.hover_show {
+  display: none;
+}
+.btn_section .btn_inner_part .claim_btn:hover img.inner_img.hover_show {
+  display: block;
+}
+.btn_section .btn_inner_part .claim_btn:hover img.inner_img.hover_hide {
+  display: none;
+}
+.btn_section .btn_inner_part .claim_btn:hover,
+.btn_section .btn_inner_part .claim_btn:hover .inner_btn {
+  background: #ffffff;
+  color: #F4353C;
+}
+.btn_section .btn_inner_part .claim_btn button.inner_btn {
+  font-size: 52px;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 70px;
+  background: transparent;
+  border: none;
+  font-family: "Open Sans", sans-serif;
+}
+.header .right_btn button.switch_network {
+  padding: 15px 45px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  border: none;
+  border-radius: 25px;
+  background: #F4353C;
+  font-family: "Lato";
+  margin-left: 15px;
+  border-bottom: 5px solid #A9191E;
+  border-right: 5px solid #A9191E;
+}
+.header .right_btn button.switch_network:hover {
+  background: #ffffff;
+  color: #F4353C;
+}
+section.btn_section .alert.alert-primary > span,
+section.btn_section .alert.alert-danger > span,
+section.btn_section .alert > span {
+  white-space: normal !important;
+  width: 100%;
+  display: block;
+  line-break: anywhere;
+}
+section.btn_section .alert.alert-danger > span {
+  white-space: normal !important;
+  width: 100%;
+  display: block;
+  line-break: auto;
+}
+@media screen and (max-width: 1530px) and (min-width: 1500px) {
+  body {
+    background-size: auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    height: 100vh;
+  }
+  .btn_section .btn_inner_part .claim_btn {
+    width: 70%;
+  }
+  .btn_section .btn_inner_part .max_btn {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .btn_section .btn_inner_part .claim_btn {
+    width: 90%;
+  }
+  .btn_section .btn_inner_part .max_btn {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 760px) {
+  #some-element {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  section.btn_section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .btn_section .btn_inner_part .max_btn button.inner_btn {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 25px;
+  }
+  .btn_section .btn_inner_part .max_btn img.inner_img {
+    padding-left: 0px;
+  }
+  .btn_section .btn_inner_part .claim_btn {
+    padding: 5px 0;
+    width: 100%;
+    margin-top: 70px;
+  }
+  .btn_section .btn_inner_part .max_btn {
+    width: 100%;
+  }
+  .header .right_btn {
+    width: calc(100% - 60px);
+    align-items: flex-start;
+  }
+  .header .right_btn button.connect_btn {
+    width: 100%;
+    overflow: hidden;
+  }
+  .header .right_btn button.connect_btn > span {
+    width: 100% !important;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .btn_section .btn_inner_part .claim_btn button.inner_btn {
+    font-size: 25px;
+  }
+  .header .right_btn .inner_btn {
+    display: flex;
+    flex-direction: column;
+  }
+  .header {
+    align-items: flex-start;
+  }
+
+  .header .right_btn button.switch_network {
+    margin-top: 5px;
+    width: 100%;
+    margin-left: 0px;
+    padding: 15px 38px;
+  }
+}
+@media screen and (max-width: 395px) {
+  .header .right_btn button.switch_network {
+    margin-top: 5px;
+    width: 100%;
+    margin-left: 0px;
+    padding: 15px 27px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .header .right_btn button.switch_network {
+    margin-top: 5px;
+    width: 100%;
+    margin-left: 0px;
+    padding: 15px 18px;
+  }
+}
+@media screen and (max-width: 365px) {
+  .header .right_btn button.switch_network {
+    margin-top: 5px;
+    width: 100%;
+    margin-left: 0px;
+    padding: 15px 12px;
+  }
+  .header .right_btn button.connect_btn {
+    padding: 15px 20px;
+  }
+}
+@media screen and (max-width: 280px) {
+  .header {
+    padding: 15px 10px 15px 10px;
+  }
+  section.btn_section {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .btn_section .btn_inner_part .max_btn button.inner_btn {
+    font-size: 20px;
+  }
+  .btn_section .btn_inner_part .claim_btn button.inner_btn {
+    font-size: 20px;
+  }
+}
+
