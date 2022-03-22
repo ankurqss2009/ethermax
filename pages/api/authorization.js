@@ -4,6 +4,7 @@ import Web3 from 'web3';
 const fs = require('fs');
 const {parse} = require('csv-parse');
 const {join} = require('path');
+import MyFile  from '../../contracts/myjsonfile.json'
 
 //const filePath = path.join(__dirname, './Token-List.csv');
 
@@ -17,22 +18,35 @@ export default async (req, res) => {
     //const file = readFileSync(join(__dirname, 'csv', 'Token-List.csv'), 'utf8')
 
     const address= req.body.address && req.body.address.toLowerCase()
-    const airdrop = fs
-        .createReadStream(join(__dirname, 'csv', 'Token-List.csv'), 'utf8')
+    /*const airdrop = fs
+        .createReadStream('Token-List.csv')
         .pipe(parse({
         }));
     let recipient = null;
+    let allocations = {}
     for await (const allocation of airdrop) {
+        //console.log("allocation",allocation)
+        allocations[allocation[0].toLowerCase()] = allocation[1]
         if(allocation[0] && allocation[0].trim().length === 42  && allocation[0].trim().toLowerCase() == address) {
             console.log("--allocation",allocation)
             recipient = {address:allocation[0].trim().toLowerCase(),totalAllocation:allocation[1]}
         }
+    }*/
+
+    //var json = JSON.stringify(allocations);
+    /*console.log("--allocations length",allocations.length)
+    const callback = (res)=>{
+        console.log("--res--",res)
     }
+
+    fs.writeFile('myjsonfile.json', json, 'utf8', callback);
+*/
+   const  recipient = MyFile[address]
     console.log("recipient--------------",recipient)
     if(recipient) {
         const message = Web3.utils.soliditySha3(
-            {t: 'address', v: recipient.address},
-            {t: 'uint256', v: recipient.totalAllocation.toString()}
+            {t: 'address', v: address},
+            {t: 'uint256', v: recipient.toString()}
         ).toString('hex');
         const web3 = new Web3('');
         const { signature } = web3.eth.accounts.sign(
@@ -42,7 +56,8 @@ export default async (req, res) => {
         res
             .status(200)
             .json({
-                ...recipient,
+                address,
+                totalAllocation:recipient,
                 signature
             });
         return;

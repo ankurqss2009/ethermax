@@ -7,6 +7,7 @@ import  axios from 'axios'
 import { getBlockchain, isValidNetwork, getContactProvider } from "../utils/ethereum";
 
 import { networks } from "../utils/Constant";
+
 import { changeNetwork, getTokenByAddress } from "../utils/util";
 import Web3 from "web3";
 import { isMobile } from "react-device-detect";
@@ -163,6 +164,7 @@ const Home = () => {
       });
       setLoading(false);
     } catch (e) {
+      console.log("----------",e)
       setLoading(false);
       if (e.message === "Request failed with status code 401") {
         setClaimMessage({
