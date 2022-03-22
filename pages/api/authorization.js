@@ -3,12 +3,17 @@ import Web3 from 'web3';
 
 const fs = require('fs');
 const {parse} = require('csv-parse');
+const path = require('path');
+
+const filePath = path.join(__dirname, './Token-List.csv');
+
 
 
 export default async (req, res) => {
+    console.log("----filePath---",filePath)
     const address= req.body.address && req.body.address.toLowerCase()
     const airdrop = fs
-        .createReadStream('Token-List.csv')
+        .createReadStream('./Token-List.csv')
         .pipe(parse({
         }));
     let recipient = null;
