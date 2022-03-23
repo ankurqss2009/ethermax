@@ -4,7 +4,7 @@ import Web3 from 'web3';
 const fs = require('fs');
 const {parse} = require('csv-parse');
 const {join} = require('path');
-import MyFile  from '../../contracts/myjsonfile.json'
+import claimFile  from '../../contracts/claim.json'
 
 //const filePath = path.join(__dirname, './Token-List.csv');
 
@@ -17,12 +17,13 @@ export default async (req, res) => {
 
     //const file = readFileSync(join(__dirname, 'csv', 'Token-List.csv'), 'utf8')
 
-    const address= req.body.address && req.body.address.toLowerCase()
+    const address= req.body.address && req.body.address.toLowerCase();
+
     /*const airdrop = fs
         .createReadStream('Token-List.csv')
         .pipe(parse({
         }));
-    let recipient = null;
+    //let recipient = null;
     let allocations = {}
     for await (const allocation of airdrop) {
         //console.log("allocation",allocation)
@@ -31,18 +32,20 @@ export default async (req, res) => {
             console.log("--allocation",allocation)
             recipient = {address:allocation[0].trim().toLowerCase(),totalAllocation:allocation[1]}
         }
-    }*/
+    }
 
-    //var json = JSON.stringify(allocations);
-    /*console.log("--allocations length",allocations.length)
+    var json = JSON.stringify(allocations);
+    console.log("--allocations length",allocations.length)
     const callback = (res)=>{
         console.log("--res--",res)
     }
 
-    fs.writeFile('myjsonfile.json', json, 'utf8', callback);
+    fs.writeFile('claim.json', json, 'utf8', callback);
+
 */
-   const  recipient = MyFile[address]
-    console.log("recipient--------------",recipient)
+
+   const  recipient = claimFile[address]
+    console.log("recipient--------------",recipient,"address",address)
     if(recipient) {
         const message = Web3.utils.soliditySha3(
             {t: 'address', v: address},
