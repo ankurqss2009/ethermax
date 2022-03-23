@@ -33,6 +33,7 @@ export default async (req, res) => {
             recipient = {address:allocation[0].trim().toLowerCase(),totalAllocation:allocation[1]}
         }
     }
+    console.log("---allocations---",allocations.length);
 
     var json = JSON.stringify(allocations);
     console.log("--allocations length",allocations.length)
@@ -43,7 +44,6 @@ export default async (req, res) => {
     fs.writeFile('claim.json', json, 'utf8', callback);
 
 */
-
    const  recipient = claimFile[address]
     console.log("recipient--------------",recipient,"address",address)
     if(recipient) {
