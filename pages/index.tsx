@@ -141,7 +141,7 @@ const Home = () => {
         payload: `
                   Claiming token from Airdrop contract...
                   Address: ${response.data.address}
-                  Total Amount: $${Web3.utils.fromWei(response.data.toString())} ${process.env.REACT_APP_TOKEN_SYMBOL} 
+                  Total Amount: $${Web3.utils.fromWei(response.data.totalAllocation.toString())} ${process.env.REACT_APP_TOKEN_SYMBOL} 
                 `,
       });
       //const symbol = process.env.TOKEN_SYMBOL;
